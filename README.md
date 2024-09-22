@@ -7,7 +7,7 @@ Steps | Action | Commands | Place | Line
 **3** |Install axios| npm i axios	| Terminal | xx
 **4** |Install react query| npm i @tanstack/react-query	| Terminal | xx
 **5** |Set up router| import { createBrowserRouter, RouterProvider } from "react-router-dom";	| index.js | xx
-
+| | | const router = createBrowserRouter([ {path: "/", element: <App/>},]); | index.js | after imports
 
 
 
