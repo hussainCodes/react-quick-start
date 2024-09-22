@@ -20,3 +20,23 @@ Steps | Action | Commands | Place | Line
 | | |```<QueryClientProvider client={queyClient}>```| index.js|inside ```<React.StrictMode>``` wrap around ```<Router/>```
 
 
+```javascript
+npx create-react-app NAME
+cd NAME
+npm i react-router react-router-dom	
+npm i axios	
+npm i @tanstack/react-query
+cd src
+mkdir api
+mkdir components
+mkdir assets
+mkdir context
+cd assets
+mkdir images
+cd ..
+cd api
+touch index.js
+touch auth.js
+touch storage.js
+```
+
