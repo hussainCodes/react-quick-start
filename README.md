@@ -46,3 +46,51 @@ touch auth.js
 touch storage.js
 ```
 
+
+Copy the following snippet and paste it in *API/INDEX.JS*
+```js
+import axios from 'axios'	
+const instance = axios.create({ baseURL: 'URL-STRING-HERE'});
+instance.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+export default instance	
+```
+
+
+Delete everything in *SRC/INDEX.JS* and replce it with the following code
+
+```JSX
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { QueryClient, QueryClientProvider} from '@tanstack/react-query'	
+
+const queryClient = new QueryClient();	
+
+const router = createBrowserRouter([{ path: "/", element: <App /> }]);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+<QueryClientProvider client={queryClient}>	
+    <RouterProvider router={router} />
+</QueryClientProvider>
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+
+
+
